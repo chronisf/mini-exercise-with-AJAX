@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8" />
+<title>AJAX calls text</title>
+<script>
+function fetch(menu)
+{
+var req;
+if (window.XMLHttpRequest)
+  {
+  req=new XMLHttpRequest();
+  }
+else
+  {
+  req=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+req.onreadystatechange=function()
+  {
+  if (req.readyState==4 && req.status==200)
+    {
+  
+	 document.getElementById("box").innerHTML=req.responseText;
+    }
+  }
+req.open("GET",menu,true);
+req.send();
+}
+
+
+function fetch2(menu)
+{
+var req2;
+if (window.XMLHttpRequest)
+  {
+  req2=new XMLHttpRequest();
+  }
+else
+  {
+  req2=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+req2.onreadystatechange=function()
+  {
+  if (req2.readyState==4 && req2.status==200)
+    {
+  
+	 document.getElementById("box2").innerHTML=req2.responseText;
+    }
+  }
+req2.open("GET",menu,true);
+req2.send();
+}
+</script>
+<style>
+#box{
+    line-height:30px;
+    background-color:#005CE6;
+    height:200px;
+    width:300px;
+    padding:5px;}
+	#box2
+	{
+    line-height:30px;
+    background-color:#66A3FF;
+    height:200px;
+    width:300px;
+    padding:5px;}
+</style>	
+</head>
+<body style="background-image:url('picjumbo.com_IMG_48931.jpg');background-size:100%; background-repeat: no-repeat; color:white">
+<h1>The Cross at Peak of Mölltaler Glacier</h1>
+<div id="box"><h2>Εμφάνιση Πληροφοριών από τη συνάρτηση fetch() και το αντικείμενο req</h2></div>
+<br>
+<div id="box2"><h2>Εμφάνιση Πληροφοριών από τη συνάρτηση fetch2() και το αντικείμενο req2</h2></div>
+<br>
+<form>
+      Πατήστε εδώ για δημιουργία αντικειμένου req <br><input type = "button" value = "req"         onclick = "fetch('multiple.php?select=1')"> <br>
+      Πατήστε εδώ για δημιουργία αντικειμένου req2<br><input type = "button" value = "req2" onclick = "fetch2('multiple.php?select=2')"> <br>
+	
+    </form>
+<footer> Πηγή Φωτογραφίας:http://picjumbo.com/</footer>	
+</body>
+</html>
+</body>
+</html>
+
+
+
+
+ 

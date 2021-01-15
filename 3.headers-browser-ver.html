@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8" />
+<title>AJAX calls text</title>
+<script>
+function loadtext()
+{
+var req;
+var ver;
+if (window.XMLHttpRequest)
+  {
+  req=new XMLHttpRequest();
+  ver=" O Browser Που χρησιμοποείτε δεν είναι ο Internet Explorer με ver<7";
+  }
+else
+  {
+  req=new ActiveXObject("Microsoft.XMLHTTP");
+  ver="O Browser Που χρησιμοποείτε είναι Internet Explorer ver<7";
+  }
+req.onreadystatechange=function()
+  {
+  if (req.readyState==4 && req.status==200)
+    {
+    document.getElementById("box").innerHTML=req.getAllResponseHeaders();
+	document.getElementById("box2").innerHTML=ver;
+	 document.getElementById("head1").innerHTML=req.responseText;
+    }
+  }
+req.open("GET","ajax.txt",true);
+req.send();
+}
+</script>
+<style>
+#box{
+    line-height:30px;
+    background-color:#FF85D6;
+    height:300px;
+    width:300px;
+    padding:5px;}
+#box2{line-height:30px;
+    background-color:	#FFCC99;
+    height:300px;
+    width:300px;
+    padding:5px;}	
+</style>	
+</head>
+<body style="background-image:url('picjumbo.com_IMG_3130.jpg');background-size:100%; background-repeat: no-repeat; color:magenta">
+<div id="head1"><h1>AJAΧ</h1></div>
+<div id="box"><h1>Εμφάνιση Headers</h1></div>
+<br>
+<div id="box2"><h1>Εμφάνιση στοιχείων έκδοσης Browsers</h1></div>
+<button type="button" onclick="loadtext()">Πατήστε για να εμφανιστούν τα headers</button><br>
+</body>
+</html>
+</body>
+</html>

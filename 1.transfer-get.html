@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8" />
+<title>Aποστολή πολλαπλών τιμών</title>
+    <script language = "javascript">
+      var req = false; 
+      if (window.XMLHttpRequest) {
+        req = new XMLHttpRequest();
+      } 
+	  else if (window.ActiveXObject) {
+        req = new  ActiveXObject("Microsoft.XMLHTTP");
+      }
+
+      function transfer(divID) 
+      { 
+        if(req) {
+          var x = document.getElementById(divID); 
+          req.open("GET", 'http://localhost/ex-ajax2/php/transfer.php?name=Dimitris&lname=Papadopoulos&email=dp@gmail.com'); 
+          req.onreadystatechange = function() 
+          { 
+            if (req.readyState == 4 && req.status == 200) { 
+                x.innerHTML = req.responseText; 
+            } 
+          } 
+          req.send(null); 
+        }
+      }
+    </script>
+  </head> 
+  <body style="background-image:url('picjumbo.com_IMG_3130.jpg');background-size:100%; background-repeat: no-repeat; color:magenta">
+    <h1>Αποστολή πολλαπλών τιμών </h1>
+    <form>
+      <input style="color:magenta;" type = "button" value = "Εμφάνισε στοιχεία" onclick = "transfer('div1')"> 
+    </form>
+    <div id="div1">
+      <p>Στο σημείο αυτό θα εμφανιστούν τα στοιχεία που θα επιστρέψει ο server</p> 
+	 
+    </div>
+<footer> Πηγή Φωτογραφίας:http://www.webdesignerdepot.com/2013/12/free-download-royalty-free-stock-images-from-picjumbo/ </footer>	
+  </body> 
+</html>
